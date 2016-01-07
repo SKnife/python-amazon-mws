@@ -94,9 +94,10 @@ class DictWrapper(object):
     @property
     def parsed(self):
         if self._rootkey:
-            return self._response_dict.get(self._rootkey)
-        else:
-            return self._response_dict
+            result=self._response_dict.get(self._rootkey)
+            if result:
+                return result
+        return self._response_dict
 
 
 class DataWrapper(object):
